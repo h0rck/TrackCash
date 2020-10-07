@@ -30,7 +30,7 @@ class HomeController extends Controller
         $body = '';
         $return = $this->curl($url,$method,$body);
 
-        $returns = count($return->data);
+        $returns = max(array_column($return->data, 'id_order'));
 
         if($return == ''){
             $id = 1; 
